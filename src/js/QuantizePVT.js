@@ -40,6 +40,7 @@ var new_int = common.new_int;
 var new_int_n = common.new_int_n;
 var assert = common.assert;
 
+
 var Encoder = require('./Encoder.js');
 var MeanBits = require('./MeanBits.js');
 var LameInternalFlags = require('./LameInternalFlags.js');
@@ -50,7 +51,7 @@ QuantizePVT.LARGE_BITS = 100000;
 QuantizePVT.IXMAX_VAL = 8206;
 
 function QuantizePVT() {
-    var BitStream = require('./BitStream.js');
+
     var tak = null;
     var rv = null;
     var psy = null;
@@ -641,6 +642,7 @@ function QuantizePVT() {
         if (cod_info.block_type != Encoder.SHORT_TYPE) {
             // NORM, START or STOP type, but not SHORT
             var k = 576;
+            var BitStream = require('./BitStream.js');
             while (k-- != 0 && BitStream.EQ(xr[k], 0)) {
                 max_nonzero = k;
             }
