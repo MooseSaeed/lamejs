@@ -30,7 +30,6 @@ BitStream.NEQ = function (a, b) {
 };
 
 function BitStream() {
-    var Lame = require('./Lame.js');
     var self = this;
     var CRC16_POLYNOMIAL = 0x8005;
 
@@ -111,6 +110,7 @@ function BitStream() {
         assert(j < MAX_LENGTH - 2);
 
         while (j > 0) {
+            var Lame = require('./Lame.js');
             var k;
             if (bufBitIdx == 0) {
                 bufBitIdx = 8;
@@ -1008,7 +1008,7 @@ function BitStream() {
         /* if (mp3data) */
         return minimum;
     };
-
+    var Lame = require('./Lame.js');
     this.init_bit_stream_w = function (gfc) {
         buf = new_byte(Lame.LAME_MAXMP3BUFFER);
 
